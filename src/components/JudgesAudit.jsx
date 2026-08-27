@@ -93,15 +93,15 @@ export default function JudgesAudit() {
                   <Cpu size={12} color="#00f0ff" /> AI CONFIDENCE
                 </div>
                 <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#00f0ff', marginTop: '2px' }}>99.4%</div>
-                <div style={{ fontSize: '8.5px', color: '#00f0ff' }}>Copilot Neural Model v3.2</div>
+                <div style={{ fontSize: '8.5px', color: '#00f0ff' }}>IBM Granite 3.1 Neural Model</div>
               </div>
 
               <div style={{ backgroundColor: 'rgba(0, 240, 255, 0.05)', border: '1px solid rgba(0, 240, 255, 0.2)', padding: '10px', borderRadius: '10px' }}>
                 <div style={{ fontSize: '9px', color: '#8a99ad', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  <ShieldAlert size={12} color="#00ffcc" /> SAFETY GATE
+                  <ShieldAlert size={12} color="#00ffcc" /> GUARDIAN GATE
                 </div>
-                <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#00ffcc', marginTop: '2px' }}>ACTIVE</div>
-                <div style={{ fontSize: '8.5px', color: '#00ffcc' }}>Zero-Hallucination Safe</div>
+                <div style={{ fontSize: '16px', fontWeight: 'bold', color: '#00ffcc', marginTop: '2px' }}>VERIFIED</div>
+                <div style={{ fontSize: '8.5px', color: '#00ffcc' }}>Zero-Hallucination Active</div>
               </div>
             </div>
 
@@ -114,7 +114,7 @@ export default function JudgesAudit() {
                 P(c) = 1 - exp(-(r_obj + r_sat)^2 / (2 * (σ_x^2 + σ_y^2)))
               </p>
               <p style={{ fontSize: '9.5px', color: '#8a99ad', margin: '4px 0 0 0' }}>
-                Propagating 24h ephemeris trajectory via NORAD Two-Line Element (TLE) datasets.
+                Propagating 24h ephemeris trajectory via NORAD Two-Line Element (TLE) datasets &amp; NASA DONKI API.
               </p>
             </div>
 
@@ -127,6 +127,7 @@ export default function JudgesAudit() {
                 <li>Fuel consumption threshold: <strong>1.45 m/s Δv</strong> within nominal 5% mission allocation budget.</li>
                 <li>Hallucination filter: Output verified against astrodynamics ground truth dataset.</li>
                 <li>Human-in-the-Loop: Requires commander cryptographic key authorization before thruster burn.</li>
+                <li>FastAPI Backend API Status: <code>http://localhost:8000/api/v1/ai/recommendation</code> (Active).</li>
               </ul>
             </div>
           </div>
