@@ -1,5 +1,20 @@
 import React, { useState } from 'react';
-import { FileText, Printer, CheckCircle2, Shield, X } from 'lucide-react';
+import { FileText, Printer, CheckCircle2, X } from 'lucide-react';
+
+// 🚀 AstraLogo Cyber Insignia Vector (Identik dengan Header Utama)
+function AstraLogo({ size = 30 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="astra-logo-svg">
+      {/* Outer Tactical Shield */}
+      <path d="M20 3L34 8V18C34 27.5 28 34.5 20 37C12 34.5 6 27.5 6 18V8L20 3Z" stroke="#00f0ff" strokeWidth="2" fill="rgba(0, 240, 255, 0.12)" className="logo-shield" />
+      {/* Orbital Trajectory Ring */}
+      <ellipse cx="20" cy="20" rx="14" ry="5" transform="rotate(-30 20 20)" stroke="#00ffcc" strokeWidth="1.5" strokeDasharray="3 1.5" className="logo-orbit" />
+      {/* Core Satellite Node & Crosshair */}
+      <circle cx="20" cy="20" r="3.5" fill="#00f0ff" className="logo-core" />
+      <path d="M20 11V15M20 25V29M11 20H15M25 20H29" stroke="#00f0ff" strokeWidth="1.5" strokeLinecap="round" className="logo-cross" />
+    </svg>
+  );
+}
 
 export default function ExportReportModal({ scenario = 'A', isManeuvered = false }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,6 +56,11 @@ export default function ExportReportModal({ scenario = 'A', isManeuvered = false
           .no-print {
             display: none !important;
           }
+          .astra-logo-svg .logo-shield { stroke: #0f2b5c !important; fill: rgba(15, 43, 92, 0.08) !important; }
+          .astra-logo-svg .logo-orbit { stroke: #0284c7 !important; }
+          .astra-logo-svg .logo-core { fill: #0f2b5c !important; }
+          .astra-logo-svg .logo-cross { stroke: #0f2b5c !important; }
+
           .report-table {
             width: 100% !important;
             border-collapse: collapse !important;
@@ -166,10 +186,10 @@ export default function ExportReportModal({ scenario = 'A', isManeuvered = false
               <X size={18} />
             </button>
 
-            {/* 1. HEADER DOKUMEN DIRGANTARA */}
+            {/* 1. HEADER DOKUMEN DIRGANTARA WITH CUSTOM ASTRA LOGO */}
             <div style={{ borderBottom: '2px solid #00f0ff', paddingBottom: '8px', marginBottom: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Shield color="#00f0ff" size={28} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <AstraLogo size={32} />
                 <div>
                   <h1 className="print-primary" style={{ margin: 0, fontSize: '15px', color: '#00f0ff', letterSpacing: '0.8px', fontWeight: 'bold' }}>
                     ASTRA SENTINEL SPACE OPERATIONS

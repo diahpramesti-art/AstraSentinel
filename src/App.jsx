@@ -14,11 +14,11 @@ import { sfx } from './utils/sfx';
 // 🛰️ Ultra-Exclusive Aerospace Cyber-Insignia
 function AstraLogo({ size = 28 }) {
   return (
-    <svg 
-      width={size} 
-      height={size} 
-      viewBox="0 0 40 40" 
-      fill="none" 
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 40 40"
+      fill="none"
       xmlns="http://www.w3.org/2000/svg"
       style={{ filter: 'drop-shadow(0 0 8px rgba(0, 255, 204, 0.45))' }}
     >
@@ -190,12 +190,12 @@ function ActiveSatellite({ selectedSat, isManeuvered, timeOffset }) {
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime() * satConfig.speed + (timeOffset * 0.2);
     const currentRadius = isManeuvered ? satConfig.boostRadius : satConfig.radius;
-    
+
     if (satRef.current) {
       const x = currentRadius * Math.cos(t);
       const z = currentRadius * Math.sin(t);
       const y = Math.sin(t * 2) * 0.45;
-      
+
       satRef.current.position.set(x, y, z);
       satRef.current.rotation.y = t + Math.PI / 2;
     }
@@ -289,7 +289,7 @@ function ThreatVector({ selectedSat, activeScenario, isManeuvered, timeOffset })
 function SatelliteOrbit({ selectedSat, isManeuvered }) {
   const satConfig = SATELLITES[selectedSat] || SATELLITES.ISS;
   const radius = isManeuvered ? satConfig.boostRadius : satConfig.radius;
-  
+
   const points = useMemo(() => {
     const pts = [];
     for (let i = 0; i <= 64; i++) {
@@ -399,7 +399,7 @@ export default function App() {
     try {
       if (scen === 'C') sfx.playAlert();
       else sfx.playClick();
-    } catch (e) {}
+    } catch (e) { }
   };
 
   const handleExecuteAvoidance = () => {
@@ -407,7 +407,7 @@ export default function App() {
     setShowSuccessBanner(true);
     try {
       sfx.playSuccess();
-    } catch (e) {}
+    } catch (e) { }
   };
 
   // Global Keyboard Shortcuts
@@ -432,7 +432,7 @@ export default function App() {
   }, []);
 
   const handleVoiceCommand = (cmd) => {
-    try { sfx.playClick(); } catch (e) {}
+    try { sfx.playClick(); } catch (e) { }
     if (cmd.type === 'MANEUVER') {
       handleExecuteAvoidance();
     } else if (cmd.type === 'SCENARIO') {
@@ -446,22 +446,22 @@ export default function App() {
   const auraGlow = activeScenario === 'C'
     ? 'inset 0 0 45px rgba(255, 0, 85, 0.22)'
     : activeScenario === 'B'
-    ? 'inset 0 0 35px rgba(245, 158, 11, 0.15)'
-    : 'inset 0 0 30px rgba(0, 255, 204, 0.08)';
+      ? 'inset 0 0 35px rgba(245, 158, 11, 0.15)'
+      : 'inset 0 0 30px rgba(0, 255, 204, 0.08)';
 
   return (
-    <div style={{ 
-      width: '100vw', 
-      height: '100vh', 
-      backgroundColor: '#040714', 
-      color: '#fff', 
-      fontFamily: 'sans-serif', 
-      position: 'relative', 
+    <div style={{
+      width: '100vw',
+      height: '100vh',
+      backgroundColor: '#040714',
+      color: '#fff',
+      fontFamily: 'sans-serif',
+      position: 'relative',
       overflow: 'hidden',
       boxShadow: auraGlow,
       transition: 'box-shadow 0.6s ease'
     }}>
-      
+
       {/* 🌌 3D Space Canvas */}
       <Canvas
         style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}
@@ -471,52 +471,70 @@ export default function App() {
         <directionalLight position={[10, 10, 10]} intensity={2.5} color="#ffffff" />
         <directionalLight position={[-10, -5, -10]} intensity={1.2} color="#00aaff" />
         <Stars radius={100} depth={50} count={3000} factor={4} saturation={0} fade speed={1} />
-        
+
         <Earth />
         <ActiveSatellite selectedSat={selectedSat} isManeuvered={isManeuvered} timeOffset={timeOffset} />
         <ThreatVector selectedSat={selectedSat} activeScenario={activeScenario} isManeuvered={isManeuvered} timeOffset={timeOffset} />
         <SatelliteOrbit selectedSat={selectedSat} isManeuvered={isManeuvered} />
         <DebrisField activeScenario={activeScenario} />
-        
+
         <OrbitControls enableZoom={true} minDistance={3.5} maxDistance={10} />
       </Canvas>
 
       {/* 🌐 Space Radar Targeting Grid (Layer 3) */}
       <SpaceRadarGrid activeScenario={activeScenario} isManeuvered={isManeuvered} />
 
-      {/* 🛡️ 1. Header Top Left with Custom AstraLogo, Integrated Clock & Tactical Corners */}
+      {/* 🛡️ 1. Header Top Left with Custom AstraLogo, Integrated Clock, AI Engine Badge & Tactical Corners */}
       <div style={{
         position: 'absolute',
         top: 15,
         left: 15,
         zIndex: 20,
-        backgroundColor: 'rgba(10, 18, 30, 0.88)',
-        padding: '8px 14px',
+        backgroundColor: 'rgba(10, 18, 30, 0.92)',
+        padding: '10px 14px',
         borderRadius: '8px',
-        border: '1px solid rgba(0, 240, 255, 0.28)',
-        backdropFilter: 'blur(10px)',
+        border: '1px solid rgba(0, 240, 255, 0.35)',
+        backdropFilter: 'blur(12px)',
         display: 'flex',
         flexDirection: 'column',
         gap: '6px',
-        minWidth: '215px'
+        minWidth: '240px',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.5)'
       }}>
         <TacticalCorners color="#00ffcc" />
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
             <AstraLogo size={28} />
             <div>
-              <h1 style={{ margin: 0, fontSize: '12px', letterSpacing: '1px', color: '#00f0ff', fontWeight: 'bold' }}>ASTRA SENTINEL</h1>
-              <p style={{ margin: 0, fontSize: '8px', color: '#8a99ad', letterSpacing: '0.5px' }}>Autonomous Orbit Defense</p>
+              <h1 style={{ margin: 0, fontSize: '13px', letterSpacing: '1px', color: '#00f0ff', fontWeight: 'bold' }}>ASTRA SENTINEL</h1>
+              <p style={{ margin: 0, fontSize: '8px', color: '#8a99ad', letterSpacing: '0.5px' }}>Autonomous Orbit Defense System</p>
             </div>
           </div>
           <GuidedTour />
+        </div>
+
+        {/* 🤖 Live IBM Granite Engine Badge */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '6px',
+          backgroundColor: 'rgba(0, 255, 204, 0.08)',
+          padding: '3px 6px',
+          borderRadius: '4px',
+          border: '1px solid rgba(0, 255, 204, 0.25)',
+          fontSize: '8.5px',
+          color: '#00ffcc',
+          fontWeight: 'bold'
+        }}>
+          <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#00ffcc', boxShadow: '0 0 6px #00ffcc' }}></span>
+          IBM GRANITE 3.1 + GUARDIAN SAFETY GATE ACTIVE
         </div>
 
         <div style={{
           display: 'flex',
           alignItems: 'center',
           gap: '5px',
-          paddingTop: '5px',
+          paddingTop: '4px',
           borderTop: '1px solid rgba(148, 163, 184, 0.15)',
           fontSize: '9px',
           color: '#94a3b8'
@@ -567,43 +585,50 @@ export default function App() {
         </div>
       )}
 
-      {/* 📊 4. System Monitor with Dropdown Selector & Tactical Corners */}
+      {/* 📊 4. System Monitor with Dropdown Selector, Enterprise ROI & UN Compliance */}
       <div style={{
         position: 'absolute',
         bottom: 15,
         left: 15,
         zIndex: 20,
-        backgroundColor: 'rgba(10, 18, 30, 0.88)',
+        backgroundColor: 'rgba(10, 18, 30, 0.92)',
         padding: '12px 14px',
         borderRadius: '8px',
-        border: '1px solid rgba(0, 240, 255, 0.25)',
-        backdropFilter: 'blur(10px)',
-        minWidth: '220px'
+        border: activeScenario === 'C' && !isManeuvered ? '1px solid rgba(255, 0, 85, 0.5)' : '1px solid rgba(0, 240, 255, 0.3)',
+        backdropFilter: 'blur(12px)',
+        minWidth: '240px',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.5)'
       }}>
         <TacticalCorners color={activeScenario === 'C' && !isManeuvered ? '#ff0055' : '#00ffcc'} />
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '8px', color: '#00f0ff' }}>
-          <Activity size={15} />
-          <span style={{ fontWeight: 'bold', fontSize: '12px' }}>SYSTEM MONITOR</span>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#00f0ff' }}>
+            <Activity size={15} />
+            <span style={{ fontWeight: 'bold', fontSize: '11px', letterSpacing: '0.5px' }}>SYSTEM MONITOR</span>
+          </div>
+          <span style={{ fontSize: '8px', padding: '1px 5px', borderRadius: '3px', backgroundColor: 'rgba(0, 255, 204, 0.15)', color: '#00ffcc', border: '1px solid rgba(0, 255, 204, 0.3)' }}>
+            UN COPUOS GUIDELINE 4
+          </span>
         </div>
-        <div style={{ fontSize: '11px', lineHeight: '1.8' }}>
+
+        <div style={{ fontSize: '10.5px', lineHeight: '1.75' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
             <span style={{ color: '#aaa', display: 'flex', alignItems: 'center', gap: '3px' }}>
-              <Satellite size={11} /> Target:
+              <Satellite size={11} /> Target Asset:
             </span>
             <select
               value={selectedSat}
               onChange={(e) => {
-                try { sfx.playClick(); } catch(err) {}
+                try { sfx.playClick(); } catch (err) { }
                 setSelectedSat(e.target.value);
                 setIsManeuvered(false);
               }}
               style={{
                 backgroundColor: '#040d1a',
                 color: '#00ffcc',
-                border: '1px solid rgba(0, 255, 204, 0.3)',
-                borderRadius: '6px',
+                border: '1px solid rgba(0, 255, 204, 0.4)',
+                borderRadius: '5px',
                 fontSize: '10px',
-                padding: '2px 4px',
+                padding: '2px 5px',
                 fontWeight: 'bold',
                 cursor: 'pointer',
                 outline: 'none'
@@ -616,8 +641,14 @@ export default function App() {
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <span style={{ color: '#aaa' }}>Active Scenario:</span>
-            <strong style={{ color: activeScenario === 'C' ? '#ff0055' : '#00ffcc' }}>SCENARIO {activeScenario}</strong>
+            <span style={{ color: '#aaa' }}>Protected Asset Value:</span>
+            <strong style={{ color: '#00ffcc' }}>$150,000,000 USD</strong>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <span style={{ color: '#aaa' }}>Active Threat Level:</span>
+            <strong style={{ color: activeScenario === 'C' ? '#ff0055' : activeScenario === 'B' ? '#ffaa00' : '#00ffcc' }}>
+              {activeScenario === 'C' ? 'CRITICAL (CRASH RISK)' : activeScenario === 'B' ? 'ELEVATED' : 'NOMINAL'}
+            </strong>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <span style={{ color: '#aaa' }}>Orbit Status:</span>
@@ -626,10 +657,8 @@ export default function App() {
             </strong>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <span style={{ color: '#aaa' }}>Tracked Junk:</span>
-            <strong style={{ color: '#00ffcc' }}>
-              {activeScenario === 'C' ? '32,100' : SATELLITES[selectedSat].junk}
-            </strong>
+            <span style={{ color: '#aaa' }}>Safety Gate Boundary:</span>
+            <strong style={{ color: '#00ffcc' }}>Δv ≤ 5.0 m/s (VERIFIED)</strong>
           </div>
         </div>
       </div>
