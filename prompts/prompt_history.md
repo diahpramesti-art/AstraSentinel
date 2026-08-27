@@ -61,3 +61,10 @@ The system enforces a strict separation of concerns across its multi-agent pipel
 
 The full machine-generated architecture audit report, 7-layer anti-hallucination matrix, and $\Delta v$ compliance results are archived in:
 * [`astrasentinel-ai-full-architecture-audit-report.html`](./astrasentinel-ai-full-architecture-audit-report.html)
+
+---
+
+## 📸 IBM Bob Collaboration Proof
+Below is the live capture of the IBM Bob assistant analyzing the 4-tier multi-agent architecture and audit status of AstraSentinel:
+
+![IBM Bob Architecture Analysis](./screenshots/ibm-bob-analysis.png)
