@@ -18,10 +18,10 @@ export default function AudioBriefing({ scenario = 'A', isManeuvered = false }) 
       return;
     }
 
-    let speechText = "AstraSentinel Copilot active. Space debris conjunction threat detected for International Space Station. Collision probability is 0.482 percent. IBM Granite recommends a prograde orbital boost of 1.45 meters per second. Granite Guardian safety gate verified.";
+    let speechText = "AstraSentinel Copilot active. Space debris conjunction threat detected for International Space Station. Collision probability is 0.482 percent. IBM Granite 3.1 recommends a prograde orbital boost of 1.45 meters per second. Granite Guardian safety gate verified.";
 
     if (scenario === 'B') {
-      speechText = "Space weather alert from NASA DONKI. Extreme geomagnetic storm detected with K p index 8.9. Atmospheric drag is increasing. IBM Granite recommends solar feather drag reduction.";
+      speechText = "Space weather alert from NASA DONKI. Extreme geomagnetic storm detected with K p index 8.9. Atmospheric drag is increasing. IBM Granite 3.1 recommends solar feather drag reduction.";
     } else if (scenario === 'C') {
       speechText = "Critical emergency alert! Urgent collision hazard in less than two hours. Collision probability is 87.4 percent. Granite Guardian safety gate verified. Recommend immediate retrograde emergency burn.";
     }

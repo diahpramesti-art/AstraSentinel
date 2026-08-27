@@ -41,7 +41,6 @@ export default function VoiceController({ onCommand }) {
 
       recognition.onerror = (e) => {
         setIsListening(false);
-        // Jika mic diblokir, jalankan simulasi perintah otomatis (Zero-Crash Guarantee)
         if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
           triggerFallbackCommand();
         } else {
@@ -60,7 +59,6 @@ export default function VoiceController({ onCommand }) {
     }
   };
 
-  // Fallback simulasi cerdas jika permission mic browser ditolak
   const triggerFallbackCommand = () => {
     setIsListening(false);
     setFeedback('AI Command: Avoid');

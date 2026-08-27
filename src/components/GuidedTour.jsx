@@ -14,7 +14,7 @@ export default function GuidedTour() {
     },
     {
       step: "2 / 4",
-      title: "2. TELEMETRY & IBM GRANITE COPILOT 📡",
+      title: "2. TELEMETRY & IBM GRANITE 3.1 COPILOT 📡",
       target: "TOP-RIGHT HUD PANELS",
       description: "Monitors real-time collision probability (Pc), solar radiation alerts from NASA DONKI, and AI maneuver recommendations verified by Granite Guardian Safety Gate.",
       action: "⚡ Notice the 'VERIFIED' badge ensuring zero-hallucination safety."
