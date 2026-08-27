@@ -1,0 +1,21 @@
+{
+  "satellite_id": "SAT-ISS-25544",
+  "satellite_name": "International Space Station",
+  "conjunction_threat": {
+    "target_debris_id": "DEBRIS-2021-042A",
+    "collision_probability_pc": 0.00482,
+    "time_to_closest_approach_tca": "2026-08-14T14:32:00Z",
+    "miss_distance_km": 0.38
+  },
+  "space_weather": {
+    "kp_index": 3.2,
+    "geomagnetic_status": "Moderate Drag",
+    "flare_alert": "C-Class Active Background"
+  },
+  "granite_recommendation": {
+    "action": "PROGRADE_ORBITAL_BOOST",
+    "delta_v_required_ms": 1.45,
+    "thruster_burn_duration_sec": 12.4,
+    "safety_gate_status": "PASSED_VERIFIED"
+  }
+}
