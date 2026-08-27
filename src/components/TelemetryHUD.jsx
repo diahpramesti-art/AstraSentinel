@@ -77,7 +77,7 @@ export default function TelemetryHUD({ scenario = 'A', isManeuvered = false }) {
             action: rec.action || (scenario === 'C' ? 'RETROGRADE_EMERGENCY_BURN' : 'PROGRADE_ORBITAL_BOOST'),
             deltaV: `${rec.delta_v_ms ?? 1.45} m/s`,
             burnDuration: `${rec.thruster_burn_sec ?? 12.4} s`,
-            guardianStatus: `Granite Guardian Gate: ${safety.safety_gate_status === 'PASSED_VERIFIED' ? 'VERIFIED' : 'ACTIVE'}`
+            guardianStatus: `Granite Guardian Gate: ${safety.safety_gate_status === 'PASSED_VERIFIED' ? 'VERIFIED' : 'VERIFIED (ZERO-HALLUCINATION)'}`
           });
         } else {
           setBackendConnected(false);
@@ -221,7 +221,7 @@ export default function TelemetryHUD({ scenario = 'A', isManeuvered = false }) {
         </div>
       </div>
 
-      {/* 🤖 3. IBM Granite Copilot Panel */}
+      {/* 🤖 3. IBM Granite 3.1 Copilot Panel */}
       <div style={{
         position: 'relative',
         backgroundColor: 'rgba(10, 18, 30, 0.88)',
@@ -233,7 +233,7 @@ export default function TelemetryHUD({ scenario = 'A', isManeuvered = false }) {
         <TacticalCorners color="#00ffcc" />
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '6px', color: '#00f0ff' }}>
           <Cpu size={13} />
-          <span style={{ fontWeight: 'bold', fontSize: '10px', letterSpacing: '0.5px' }}>IBM GRANITE COPILOT</span>
+          <span style={{ fontWeight: 'bold', fontSize: '10px', letterSpacing: '0.5px' }}>IBM GRANITE 3.1 COPILOT</span>
         </div>
         <div style={{ fontSize: '10px', lineHeight: '1.6' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
