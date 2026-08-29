@@ -127,7 +127,7 @@ export default function JudgesAudit() {
                 <li>Fuel consumption threshold: <strong>1.45 m/s Δv</strong> within nominal 5% mission allocation budget.</li>
                 <li>Hallucination filter: Output verified against astrodynamics ground truth dataset.</li>
                 <li>Human-in-the-Loop: Requires commander cryptographic key authorization before thruster burn.</li>
-                <li>FastAPI Backend API Status: <code>http://localhost:8000/api/v1/ai/recommendation</code> (Active).</li>
+                <li>FastAPI Backend API Status: <code>https://astrasentinel-production.up.railway.app/api/v1/ai/recommendation</code> (Active).</li>
               </ul>
             </div>
           </div>
