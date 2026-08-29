@@ -42,14 +42,14 @@ export default function TelemetryHUD({ scenario = 'A', isManeuvered = false }) {
     const fetchBackendData = async () => {
       try {
         // 1. Fetch AI Recommendation & Safety Gate Audit
-        const aiResponse = await fetch('http://localhost:8000/api/v1/ai/recommendation', {
+        const aiResponse = await fetch('https://astrasentinel-production.up.railway.app/api/v1/ai/recommendation', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ scenario: scenario })
         });
 
         // 2. Fetch Telemetri NASA DONKI Live
-        const telemetryResponse = await fetch('http://localhost:8000/api/v1/telemetry/live');
+        const telemetryResponse = await fetch('https://astrasentinel-production.up.railway.app/api/v1/telemetry/live');
 
         if (aiResponse.ok) {
           const aiData = await aiResponse.json();
