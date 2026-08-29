@@ -37,7 +37,7 @@ export default function TelemetryHUD({ scenario = 'A', isManeuvered = false }) {
 
   const [displayedAction, setDisplayedAction] = useState('');
 
-  // Fetch data live dari Backend FastAPI (Port 8000)
+  // Fetch data live dari Backend FastAPI (Cloud API Live)
   useEffect(() => {
     const fetchBackendData = async () => {
       try {
@@ -51,10 +51,10 @@ export default function TelemetryHUD({ scenario = 'A', isManeuvered = false }) {
         // 2. Fetch Telemetri NASA DONKI Live
         const telemetryResponse = await fetch('https://astrasentinel-production.up.railway.app/api/v1/telemetry/live');
 
-        if (aiResponse.ok) {
+        if (aiResponse.ok || telemetryResponse.ok) {
           const aiData = await aiResponse.json();
           const liveTelemetry = telemetryResponse.ok ? await telemetryResponse.json() : null;
-          
+
           setBackendConnected(true);
 
           const rec = aiData.recommendation || {};
@@ -64,7 +64,7 @@ export default function TelemetryHUD({ scenario = 'A', isManeuvered = false }) {
           // Format angka Pc dari float ke persentase
           const rawPc = metrics.collision_probability ?? (scenario === 'C' ? 0.8741 : scenario === 'B' ? 0.0125 : 0.00482);
           const formattedPc = isManeuvered ? '0.001%' : `${(rawPc * 100).toFixed(3)}%`;
-          
+
           const rawMissDist = metrics.miss_distance_km ?? (scenario === 'C' ? 0.09 : scenario === 'B' ? 0.65 : 0.38);
           const formattedMissDist = isManeuvered ? '4.85 km' : `${rawMissDist} km`;
 
@@ -124,11 +124,11 @@ export default function TelemetryHUD({ scenario = 'A', isManeuvered = false }) {
     return () => clearInterval(interval);
   }, [telemetry.action, isManeuvered]);
 
-  const alertColor = isManeuvered 
-    ? '#00ffcc' 
-    : scenario === 'C' 
-    ? '#ff0055' 
-    : '#ff9900';
+  const alertColor = isManeuvered
+    ? '#00ffcc'
+    : scenario === 'C'
+      ? '#ff0055'
+      : '#ff9900';
 
   return (
     <div style={{
@@ -141,7 +141,7 @@ export default function TelemetryHUD({ scenario = 'A', isManeuvered = false }) {
       gap: '10px',
       width: '270px'
     }}>
-      
+
       {/* 📡 1. Conjunction Threat Alert Panel */}
       <div style={{
         position: 'relative',
@@ -167,7 +167,7 @@ export default function TelemetryHUD({ scenario = 'A', isManeuvered = false }) {
               {isManeuvered ? 'THREAT RESOLVED • SAFE' : scenario === 'C' ? 'CRITICAL EMERGENCY ALERT' : 'CONJUNCTION THREAT ALERT'}
             </span>
           </div>
-          <span title={backendConnected ? "Live Backend API Connected (Port 8000)" : "Using Fallback Engine"} style={{ display: 'flex', alignItems: 'center', gap: '3px', fontSize: '8px', color: backendConnected ? '#00ffcc' : '#8a99ad' }}>
+          <span title={backendConnected ? "Live Backend API Connected (Cloud API Live)" : "Using Fallback Engine"} style={{ display: 'flex', alignItems: 'center', gap: '3px', fontSize: '8px', color: backendConnected ? '#00ffcc' : '#8a99ad' }}>
             {backendConnected ? <Wifi size={10} color="#00ffcc" /> : <WifiOff size={10} />}
             {backendConnected ? 'API LIVE' : 'LOCAL'}
           </span>
