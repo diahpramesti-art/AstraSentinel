@@ -452,9 +452,7 @@ export default function App() {
       overflowX: 'hidden',
       overflowY: 'auto',
       boxShadow: auraGlow,
-      transition: 'box-shadow 0.6s ease',
-      transform: window.innerWidth < 768 ? 'scale(0.85)' : 'none',
-      transformOrigin: 'top center'
+      transition: 'box-shadow 0.6s ease'
     }}>
 
       {/* 🌌 3D Space Canvas */}
