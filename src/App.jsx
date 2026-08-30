@@ -444,18 +444,17 @@ export default function App() {
   return (
     <div style={{
       width: '100vw',
-      height: '100vh',
+      minHeight: '100vh',
       backgroundColor: '#040714',
       color: '#fff',
       fontFamily: 'sans-serif',
       position: 'relative',
-      overflow: 'hidden',
+      overflowX: 'hidden',
+      overflowY: 'auto',
       boxShadow: auraGlow,
       transition: 'box-shadow 0.6s ease',
-      transform: window.innerWidth < 768 ? 'scale(0.48)' : 'none',
-      transformOrigin: 'top center',
-      width: window.innerWidth < 768 ? '208vw' : '100vw',
-      height: window.innerWidth < 768 ? '208vh' : '100vh',
+      transform: window.innerWidth < 768 ? 'scale(0.85)' : 'none',
+      transformOrigin: 'top center'
     }}>
 
       {/* 🌌 3D Space Canvas */}
