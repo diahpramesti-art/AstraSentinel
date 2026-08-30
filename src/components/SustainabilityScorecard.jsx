@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Leaf, Award, CheckCircle, ShieldCheck, X, Globe, AlertCircle } from 'lucide-react';
 
 export default function SustainabilityScorecard() {
@@ -31,7 +32,7 @@ export default function SustainabilityScorecard() {
       </button>
 
       {/* Modal Detail Kepatuhan ESG Antariksa */}
-      {isOpen && (
+      {isOpen && createPortal(
         <div style={{
           position: 'fixed',
           top: 0,
@@ -152,7 +153,7 @@ export default function SustainabilityScorecard() {
 
           </div>
         </div>
-      )}
+        , document.body)}
     </>
   );
 }
