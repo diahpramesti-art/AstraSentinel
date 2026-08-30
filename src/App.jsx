@@ -109,10 +109,10 @@ function SpaceRadarGrid({ activeScenario, isManeuvered }) {
       <line x1="6%" y1="50%" x2="94%" y2="50%" stroke={strokeColor} strokeWidth="1" strokeDasharray="5 10" />
 
       {/* Center Reticle Corner Marks */}
-      <path d="M calc(50% - 20px) calc(50% - 20px) L calc(50% - 10px) calc(50% - 20px) M calc(50% - 20px) calc(50% - 20px) L calc(50% - 20px) calc(50% - 10px)" stroke={strokeColor} strokeWidth="1.5" fill="none" />
-      <path d="M calc(50% + 20px) calc(50% - 20px) L calc(50% + 10px) calc(50% - 20px) M calc(50% + 20px) calc(50% - 20px) L calc(50% + 20px) calc(50% - 10px)" stroke={strokeColor} strokeWidth="1.5" fill="none" />
-      <path d="M calc(50% - 20px) calc(50% + 20px) L calc(50% - 10px) calc(50% + 20px) M calc(50% - 20px) calc(50% + 20px) L calc(50% - 20px) calc(50% + 10px)" stroke={strokeColor} strokeWidth="1.5" fill="none" />
-      <path d="M calc(50% + 20px) calc(50% + 20px) L calc(50% + 10px) calc(50% + 20px) M calc(50% + 20px) calc(50% + 20px) L calc(50% + 20px) calc(50% + 10px)" stroke={strokeColor} strokeWidth="1.5" fill="none" />
+      <path d="M 180 180 L 190 180" stroke={strokeColor} strokeWidth="1" fill="none" />
+      <path d="M 220 180 L 210 180" stroke={strokeColor} strokeWidth="1" fill="none" />
+      <path d="M 180 220 L 190 220" stroke={strokeColor} strokeWidth="1" fill="none" />
+      <path d="M 220 220 L 210 220" stroke={strokeColor} strokeWidth="1" fill="none" />
     </svg>
   );
 }
