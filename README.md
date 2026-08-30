@@ -17,6 +17,7 @@ AstraSentinel AI is an Autonomous Mission Control Copilot engineered to process 
 
 ## 🔄 End-to-End System Workflow Architecture
 
+```text
 [1. Telemetry Ingestion] 
   CelesTrak TLE & NASA Space Weather API 
          │
@@ -93,8 +94,6 @@ python -m uvicorn main:app --reload --port 8000
 ```bash
 npm install
 npm run dev
-
----
 
 ## 🔌 API Specification & REST Contracts
 
