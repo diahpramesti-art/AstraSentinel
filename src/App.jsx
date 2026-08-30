@@ -543,12 +543,14 @@ export default function App() {
       </div>
 
       {/* 🎮 2. Top Center Command Ribbon */}
-      <InteractiveSimulator
-        onSelectScenario={handleScenarioChange}
-        activeScenario={activeScenario}
-        isManeuvered={isManeuvered}
-        onVoiceCommand={handleVoiceCommand}
-      />
+      <div style={{ position: 'relative', zIndex: 10 }}>
+        <InteractiveSimulator
+          onSelectScenario={handleScenarioChange}
+          activeScenario={activeScenario}
+          isManeuvered={isManeuvered}
+          onVoiceCommand={handleVoiceCommand}
+        />
+      </div>
 
       {/* 🟢 3. Maneuver Success Banner */}
       {showSuccessBanner && (
