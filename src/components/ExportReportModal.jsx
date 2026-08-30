@@ -181,7 +181,7 @@ export default function ExportReportModal({ scenario = 'A', isManeuvered = false
             <button
               onClick={() => setIsOpen(false)}
               className="no-print"
-              style={{ position: 'absolute', top: 14, right: 14, background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer' }}
+              style={{ position: 'absolute', top: 20, right: 20, background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer', zIndex: 10 }}
             >
               <X size={18} />
             </button>
