@@ -443,16 +443,17 @@ export default function App() {
 
   return (
     <div style={{
-      width: '100vw',
+      width: '100%',
       minWidth: '1280px',
-      minHeight: '100vh',
+      height: '100vh',
+      minHeight: '700px',
       backgroundColor: '#040714',
       color: '#fff',
       fontFamily: 'sans-serif',
       position: 'relative',
-      overflowX: 'scroll',  // Memaksa scrollbar mendatar aktif
+      overflowX: 'auto',
       overflowY: 'auto',
-      WebkitOverflowScrolling: 'touch', // Akses scroll halus untuk browser HP
+      WebkitOverflowScrolling: 'touch',
       boxShadow: auraGlow,
       transition: 'box-shadow 0.6s ease'
     }}>
