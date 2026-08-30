@@ -20,33 +20,30 @@ AstraSentinel AI is an Autonomous Mission Control Copilot engineered to process 
 ```mermaid
 flowchart TD
     subgraph S1 [1. Telemetry Ingestion]
-        A1[CelesTrak TLE Stream] -->|NORAD CAT#25544| B1[Tier 1 Ingestion Agent]
-        A2[NASA DONKI Space Weather] -->|Kp Index & Solar Flux| B1
-        B1 -->|Zero-Crash Fallback Cache| C1[Raw Telemetry Payload]
+        A1[CelesTrak TLE Stream] --> B1[Tier 1 Ingestion Agent]
+        A2[NASA Space Weather API] --> B1
+        B1 --> C1[Raw Telemetry Payload]
     end
 
-    subgraph S2 [2. Astrodynamics & Risk Computation]
+    subgraph S2 [2. Astrodynamics Computation]
         C1 --> D1[Tier 2 SGP4 Propagator Engine]
-        D1 -->|Foster-1992 Analytical Model| E1{Collision Probability Pc}
-        E1 -->|< 0.01% Low Risk| F1[Log Nominal Track]
-        E1 -->|>= 0.01% Elevated / High Hazard| G1[Trigger Conjunction Alert]
+        D1 --> E1{Collision Probability Pc}
+        E1 -->|Low Risk| F1[Log Nominal Track]
+        E1 -->|High Hazard| G1[Trigger Conjunction Alert]
     end
 
-    subgraph S3 [3. AI Synthesis & Safety Gate]
-        G1 --> H1[Tier 3 IBM Granite Recommendation Agent]
-        H1 -->|watsonx LLM Synthesis| I1[Proposed Delta-v & Thruster Plan]
-        I1 --> J1[Tier 4 Granite Guardian Safety Gate]
-        J1 -->|Verify Delta-v <= 5.0 m/s & Confidence >= 0.95| K1{Guard Passed?}
-        K1 -->|No / Hallucinated| L1[Fallback Safe Maneuver Vector]
-        K1 -->|Yes / Verified| M1[Cryptographic Hash & Audit Log #FD-8821]
+    subgraph S3 [3. AI Synthesis and Safety Gate]
+        G1 --> H1[Tier 3 IBM Granite Agent]
+        H1 --> I1[Proposed Delta-v Plan]
+        I1 --> J1[Tier 4 Granite Guardian Gate]
+        J1 -->|Guard Passed| M1[Cryptographic Audit Log]
     end
 
-    subgraph S4 [4. Mission Control & Execution]
-        M1 --> N1[React Mission Control HUD Dashboard]
-        N1 --> O1[Human-in-the-Loop Authorization HITL]
-        O1 -->|Approved by Flight Director| P1[Execute Thruster Burn & Export CAR-DISPO Report]
+    subgraph S4 [4. Mission Control Execution]
+        M1 --> N1[React Dashboard HUD]
+        N1 --> O1[Human-in-the-Loop HITL]
+        O1 --> P1[Execute Burn and Export Report]
     end
-    ---
 
 ## 🏛️ 4-Tier Multi-Agent Architecture Details
 
