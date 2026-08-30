@@ -100,7 +100,7 @@ export default function SustainabilityScorecard() {
               wordWrap: 'break-word',
               overflowWrap: 'break-word'
             }}>
-              Kepatuhan tata kelola orbit berbasis pedoman <strong>UN COPUOS Space Debris Mitigation</strong> dan <strong>ESA Zero Debris Charter</strong>.
+              Orbital governance compliance strictly aligned with <strong>UN COPUOS Space Debris Mitigation</strong> and <strong>ESA Zero Debris Charter</strong> guidelines.
             </p>
 
             {/* Kartu Metrik Utama */}
