@@ -181,7 +181,7 @@ export default function ExportReportModal({ scenario = 'A', isManeuvered = false
             <button
               onClick={() => setIsOpen(false)}
               className="no-print"
-              style={{ position: 'absolute', top: 20, right: 20, background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer', zIndex: 10 }}
+              style={{ position: 'absolute', top: 12, right: 12, background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer', zIndex: 100 }}
             >
               <X size={18} />
             </button>
@@ -199,7 +199,7 @@ export default function ExportReportModal({ scenario = 'A', isManeuvered = false
                   </p>
                 </div>
               </div>
-              <div style={{ textAlign: 'right', fontSize: '8.5px', color: '#94a3b8' }}>
+              <div style={{ textAlign: 'right', fontSize: '8.5px', color: '#94a3b8', paddingRight: '28px' }}>
                 <div>DOC ID: <strong style={{ color: '#00f0ff' }}>AST-2026-CAR-089</strong></div>
                 <div>EPOCH: <strong>2026-08-14 14:32:00 UTC</strong></div>
                 <div>SECURITY: <strong>FLIGHT OPS / UNRESTRICTED AUDIT</strong></div>
