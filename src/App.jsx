@@ -450,7 +450,9 @@ export default function App() {
       color: '#fff',
       fontFamily: 'sans-serif',
       position: 'relative',
-      overflow: 'auto',
+      overflowX: 'scroll',  // Memaksa scrollbar mendatar aktif
+      overflowY: 'auto',
+      WebkitOverflowScrolling: 'touch', // Akses scroll halus untuk browser HP
       boxShadow: auraGlow,
       transition: 'box-shadow 0.6s ease'
     }}>
