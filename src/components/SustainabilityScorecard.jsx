@@ -54,6 +54,8 @@ export default function SustainabilityScorecard() {
             padding: '22px 24px',
             maxWidth: '460px',
             width: '100%',
+            maxHeight: '90vh',
+            overflowY: 'auto',
             color: '#f8fafc',
             boxShadow: '0 0 40px rgba(0, 255, 204, 0.2)',
             position: 'relative',
