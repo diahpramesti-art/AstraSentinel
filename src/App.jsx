@@ -444,14 +444,12 @@ export default function App() {
   return (
     <div style={{
       width: '100vw',
-      minWidth: '1280px',
-      minHeight: '100vh',
+      height: '100vh',
       backgroundColor: '#040714',
       color: '#fff',
       fontFamily: 'sans-serif',
       position: 'relative',
-      overflowY: 'auto',        // Mengizinkan scroll vertikal kalau tombol bawah terpotong
-      overflowX: 'auto',
+      overflow: 'hidden',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between',
