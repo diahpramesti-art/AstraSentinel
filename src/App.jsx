@@ -443,17 +443,18 @@ export default function App() {
 
   return (
     <div style={{
-      width: '100%',
+      width: '100vw',
       minWidth: '1280px',
-      height: '100vh',
-      minHeight: '700px',
+      minHeight: '100vh',
       backgroundColor: '#040714',
       color: '#fff',
       fontFamily: 'sans-serif',
       position: 'relative',
+      overflowY: 'auto',        // Mengizinkan scroll vertikal kalau tombol bawah terpotong
       overflowX: 'auto',
-      overflowY: 'auto',
-      WebkitOverflowScrolling: 'touch',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
       boxShadow: auraGlow,
       transition: 'box-shadow 0.6s ease'
     }}>
