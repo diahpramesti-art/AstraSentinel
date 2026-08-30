@@ -498,7 +498,7 @@ export default function App() {
         display: 'flex',
         flexDirection: 'column',
         gap: '6px',
-        minWidth: '240px',
+        maxWidth: 'calc(100vw - 30px)',
         boxShadow: '0 4px 20px rgba(0,0,0,0.5)'
       }}>
         <TacticalCorners color="#00ffcc" />
@@ -517,6 +517,7 @@ export default function App() {
         <div style={{
           display: 'flex',
           alignItems: 'center',
+          flexWrap: 'wrap',
           gap: '6px',
           backgroundColor: 'rgba(0, 255, 204, 0.08)',
           padding: '3px 6px',
