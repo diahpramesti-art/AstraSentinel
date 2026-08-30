@@ -81,21 +81,13 @@ function AstraLogo({ size = 28 }) {
 
 // 📐 Tactical HUD Corner Accents Component
 function TacticalCorners({ color = '#00ffcc' }) {
-  const cornerStyle = {
-    position: 'absolute',
-    width: '6px',
-    height: '6px',
-    borderColor: color,
-    pointerEvents: 'none'
-  };
-
   return (
-    <>
-      <div style={{ ...cornerStyle, top: '-1px', left: '-1px', borderTop: '2px solid', borderLeft: '2px solid' }} />
-      <div style={{ ...cornerStyle, top: '-1px', right: '-1px', borderTop: '2px solid', borderRight: '2px solid' }} />
-      <div style={{ ...cornerStyle, bottom: '-1px', left: '-1px', borderBottom: '2px solid', borderLeft: '2px solid' }} />
-      <div style={{ ...cornerStyle, bottom: '-1px', right: '-1px', borderBottom: '2px solid', borderRight: '2px solid' }} />
-    </>
+    <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
+      <span style={{ position: 'absolute', top: -1, left: -1, width: 8, height: 8, borderTop: `2px solid ${color}`, borderLeft: `2px solid ${color}` }} />
+      <span style={{ position: 'absolute', top: -1, right: -1, width: 8, height: 8, borderTop: `2px solid ${color}`, borderRight: `2px solid ${color}` }} />
+      <span style={{ position: 'absolute', bottom: -1, left: -1, width: 8, height: 8, borderBottom: `2px solid ${color}`, borderLeft: `2px solid ${color}` }} />
+      <span style={{ position: 'absolute', bottom: -1, right: -1, width: 8, height: 8, borderBottom: `2px solid ${color}`, borderRight: `2px solid ${color}` }} />
+    </div>
   );
 }
 
