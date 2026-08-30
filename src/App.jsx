@@ -444,13 +444,13 @@ export default function App() {
   return (
     <div style={{
       width: '100vw',
+      minWidth: '1280px',
       minHeight: '100vh',
       backgroundColor: '#040714',
       color: '#fff',
       fontFamily: 'sans-serif',
       position: 'relative',
-      overflowX: 'hidden',
-      overflowY: 'auto',
+      overflow: 'auto',
       boxShadow: auraGlow,
       transition: 'box-shadow 0.6s ease'
     }}>
