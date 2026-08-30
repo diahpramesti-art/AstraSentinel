@@ -35,6 +35,7 @@ AstraSentinel AI is an Autonomous Mission Control Copilot engineered to process 
                    ▼
 [4. Mission Control & Execution] 
   React HUD Dashboard ──> Human-in-the-Loop (HITL) Approval ──> Execute Burn & Export Report
+```
 
 ---
 
@@ -89,11 +90,15 @@ AstraSentinel calculates collision probability (Pc) using the Foster-1992 analyt
 cd backend
 pip install -r requirements.txt
 python -m uvicorn main:app --reload --port 8000
+```
 
 ### 2. Launch Frontend (React Mission Control HUD)
 ```bash
 npm install
 npm run dev
+```
+
+---
 
 ## 🔌 API Specification & REST Contracts
 
